@@ -1,16 +1,40 @@
 services:
-  postgres:
+  swimtracker-db:
     image: postgres:16
-    container_name: swimtrack-postgres
+    container_name: swimtracker-db
     restart: unless-stopped
-    ports:
-      - "5433:5432"
     environment:
-      POSTGRES_USER: swimtrack
-      POSTGRES_PASSWORD: swimtrack
-      POSTGRES_DB: swimtrack
+      POSTGRES_USER: swimtracker
+      POSTGRES_PASSWORD: swimtracker_password_change_me
+      POSTGRES_DB: swimtracker
     volumes:
-      - swimtrack_pg_data:/var/lib/postgresql/data
+      - swimtracker_pg_data:/var/lib/postgresql/data
+    networks:
+      - swimtracker-net
+
+  swimtracker-app:
+    build: .
+    container_name: swimtracker-app
+    restart: unless-stopped
+    environment:
+      DATABASE_URL: postgresql://swimtracker:swimtracker_password_change_me@swimtracker-db:5432/swimtracker
+      NODE_ENV: production
+    depends_on:
+      - swimtracker-db
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.swimtracker.rule=Host(`swimtracker.bricotube.com`)"
+      - "traefik.http.routers.swimtracker.entrypoints=websecure"
+      - "traefik.http.routers.swimtracker.tls.certresolver=letsencrypt"
+      - "traefik.http.services.swimtracker.loadbalancer.server.port=3000"
+    networks:
+      - swimtracker-net
+      - traefik
 
 volumes:
-  swimtrack_pg_data:
+  swimtracker_pg_data:
+
+networks:
+  swimtracker-net:
+  traefik:
+    external: true
