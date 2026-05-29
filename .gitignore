@@ -3,3 +3,15 @@ node_modules
 .env
 
 /lib/generated/prisma
+
+node_modules
+.next
+.env
+.DS_Store
+
+/lib/generated/prisma
+
+*.db
+*.db-journal
+
+Archive.zip
