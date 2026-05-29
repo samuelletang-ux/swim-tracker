@@ -1,5 +1,5 @@
 import 'dotenv/config'
-import { PrismaClient } from '../lib/generated/prisma/client'
+import { PrismaClient } from '/client'
 import { qualificationStandards2025 } from '../lib/data/qualification-standards-2025'
 
 const prisma = new PrismaClient()
