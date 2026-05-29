@@ -1,0 +1,117 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../lib/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Swimmer {
+  id        String  @id @default(cuid())
+  name      String
+  birthYear Int?
+  gender    String?
+  club      String?
+
+  role SwimmerRole @default(RIVAL)
+
+  results            SwimResult[]
+  favoriteEvents     FavoriteEvent[]
+  competitionEntries CompetitionEntry[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+enum SwimmerRole {
+  PRIMARY
+  RIVAL
+}
+
+model QualificationStandard {
+  id String @id @default(cuid())
+
+  gender   String
+  ageGroup String
+  stroke   String
+  distance Int
+  timeText String
+  timeMs   Int
+
+  source String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([gender, ageGroup, stroke, distance])
+}
+
+model SwimResult {
+  id        String   @id @default(cuid())
+  swimmerId String?
+  swimmer   Swimmer? @relation(fields: [swimmerId], references: [id], onDelete: Cascade)
+
+  resultType String @default("COMPETITION")
+
+  date           String
+  stroke         String
+  distance       Int
+  poolSize       Int
+  timeMs         Int
+  location       String?
+  notes          String?
+  isPersonalBest Boolean @default(false)
+  rank           Int?
+  isUnranked     Boolean @default(false)
+
+  competitionId String?
+  competition   Competition? @relation(fields: [competitionId], references: [id], onDelete: SetNull)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model FavoriteEvent {
+  id        String  @id @default(cuid())
+  swimmerId String
+  stroke    String
+  distance  Int
+
+  swimmer Swimmer @relation(fields: [swimmerId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+
+  @@unique([swimmerId, stroke, distance])
+}
+
+model Competition {
+  id       String  @id @default(cuid())
+  name     String
+  date     String
+  location String?
+  notes    String?
+  isLive   Boolean @default(false)
+
+  entries CompetitionEntry[]
+  results SwimResult[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model CompetitionEntry {
+  id            String @id @default(cuid())
+  competitionId String
+  swimmerId     String
+  stroke        String
+  distance      Int
+
+  competition Competition @relation(fields: [competitionId], references: [id], onDelete: Cascade)
+  swimmer     Swimmer     @relation(fields: [swimmerId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+
+  @@unique([competitionId, swimmerId, stroke, distance])
+}

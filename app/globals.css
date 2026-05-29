@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: 'Inter', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --pool-deep: #f5f9ff;
+  --pool-dark: #eaf4ff;
+  --pool-mid: #d8ecff;
+  --pool-accent: #0877ee;
+  --pool-bright: #0b83ff;
+  --pool-glow: #005fd1;
+  --pool-surface: #ffffff;
+
+  --gold: #f5b700;
+  --gold-dim: #b88700;
+
+  --text-primary: #0f1b2d;
+  --text-secondary: #526172;
+  --text-muted: #8794a6;
+
+  --card-bg: #ffffff;
+  --card-border: #dbe6f2;
+  --card-hover: #f0f7ff;
+
+  --danger: #ef4444;
+  --success: #16a34a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background:
+    linear-gradient(180deg, #eef7ff 0%, #f7fbff 38%, #ffffff 100%);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(circle at 15% 0%, rgba(11, 131, 255, 0.12), transparent 35%),
+    radial-gradient(circle at 90% 15%, rgba(0, 180, 216, 0.10), transparent 30%);
+  pointer-events: none;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background-image:
+    linear-gradient(rgba(8, 119, 238, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(8, 119, 238, 0.035) 1px, transparent 1px);
+  background-size: 44px 44px;
+  pointer-events: none;
+}
+
+#__next,
+main {
+  position: relative;
+  z-index: 1;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+  color: var(--text-primary);
+  margin: 0;
+}
+
+a {
+  color: inherit;
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(15, 27, 45, 0.06);
+  transition:
+    border-color 0.2s,
+    background 0.2s,
+    box-shadow 0.2s,
+    transform 0.15s;
+}
+
+.card:hover {
+  border-color: rgba(8, 119, 238, 0.25);
+  background: var(--card-hover);
+  box-shadow: 0 16px 36px rgba(15, 27, 45, 0.08);
+}
+
+.input,
+select,
+textarea,
+input {
+  background: #ffffff;
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 15px;
+  padding: 10px 14px;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s,
+    background 0.2s;
+  outline: none;
+}
+
+.input:focus,
+select:focus,
+textarea:focus,
+input:focus {
+  border-color: var(--pool-bright);
+  box-shadow: 0 0 0 4px rgba(11, 131, 255, 0.12);
+}
+
+.input::placeholder,
+textarea::placeholder,
+input::placeholder {
+  color: var(--text-muted);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #0877ee, #0b83ff);
+  color: #ffffff;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.01em;
+  border: none;
+  border-radius: 12px;
+  padding: 11px 22px;
+  cursor: pointer;
+  box-shadow: 0 10px 22px rgba(8, 119, 238, 0.25);
+  transition:
+    opacity 0.2s,
+    transform 0.15s,
+    box-shadow 0.2s;
+}
+
+.btn-primary:hover {
+  opacity: 0.95;
+  transform: translateY(-1px);
+  box-shadow: 0 14px 28px rgba(8, 119, 238, 0.3);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-ghost {
+  background: #ffffff;
+  color: var(--text-secondary);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    color 0.2s,
+    border-color 0.2s;
+}
+
+.btn-ghost:hover {
+  background: #f0f7ff;
+  color: var(--pool-glow);
+  border-color: rgba(8, 119, 238, 0.25);
+}
+
+.badge-pb {
+  background: rgba(245, 183, 0, 0.14);
+  color: #a26c00;
+  border: 1px solid rgba(245, 183, 0, 0.28);
+  border-radius: 999px;
+  padding: 2px 8px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+::selection {
+  background: rgba(11, 131, 255, 0.22);
+}

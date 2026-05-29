@@ -1,0 +1,46 @@
+{
+  "node": {
+    "063cfa1c4d8cb22c92349afc03c473f5b253ccc1": {
+      "workers": {
+        "app/account/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fsamuel%2FDocuments%2FTravail%2Fswim-tracker%2Fapp%2Faccount%2Fpage.tsx%22%2C%5B%22%24%24ACTION_0%22%2C%22%24%24ACTION_1%22%2C%22%24%24ACTION_2%22%5D%5D%5D&__client_imported__=!"
+      },
+      "layer": {
+        "app/account/page": "rsc"
+      }
+    },
+    "689107d20c56cd824529752df1a15910ffe13e2f": {
+      "workers": {
+        "app/account/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fsamuel%2FDocuments%2FTravail%2Fswim-tracker%2Fapp%2Faccount%2Fpage.tsx%22%2C%5B%22%24%24ACTION_0%22%2C%22%24%24ACTION_1%22%2C%22%24%24ACTION_2%22%5D%5D%5D&__client_imported__=!"
+      },
+      "layer": {
+        "app/account/page": "rsc"
+      }
+    },
+    "b5bae7871db6192851c4e535885282f0a25c64fe": {
+      "workers": {
+        "app/account/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fsamuel%2FDocuments%2FTravail%2Fswim-tracker%2Fapp%2Faccount%2Fpage.tsx%22%2C%5B%22%24%24ACTION_0%22%2C%22%24%24ACTION_1%22%2C%22%24%24ACTION_2%22%5D%5D%5D&__client_imported__=!"
+      },
+      "layer": {
+        "app/account/page": "rsc"
+      }
+    },
+    "873792e78a172bc862c274db05cecf8e2e84f860": {
+      "workers": {
+        "app/strokes/[stroke]/[distance]/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fsamuel%2FDocuments%2FTravail%2Fswim-tracker%2Fapp%2Fstrokes%2F%5Bstroke%5D%2F%5Bdistance%5D%2Fpage.tsx%22%2C%5B%22%24%24ACTION_0%22%2C%22%24%24ACTION_1%22%5D%5D%5D&__client_imported__=!"
+      },
+      "layer": {
+        "app/strokes/[stroke]/[distance]/page": "rsc"
+      }
+    },
+    "ecb5c834ec8c948c92f55f29d67a1a259e8bf2b2": {
+      "workers": {
+        "app/strokes/[stroke]/[distance]/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fsamuel%2FDocuments%2FTravail%2Fswim-tracker%2Fapp%2Fstrokes%2F%5Bstroke%5D%2F%5Bdistance%5D%2Fpage.tsx%22%2C%5B%22%24%24ACTION_0%22%2C%22%24%24ACTION_1%22%5D%5D%5D&__client_imported__=!"
+      },
+      "layer": {
+        "app/strokes/[stroke]/[distance]/page": "rsc"
+      }
+    }
+  },
+  "edge": {},
+  "encryptionKey": "nb3FflDo8e126SmZkCRDxwQPdtAoxWliGoxxN/5VUFI="
+}

@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: swimtrack-postgres
+    restart: unless-stopped
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_USER: swimtrack
+      POSTGRES_PASSWORD: swimtrack
+      POSTGRES_DB: swimtrack
+    volumes:
+      - swimtrack_pg_data:/var/lib/postgresql/data
+
+volumes:
+  swimtrack_pg_data:
